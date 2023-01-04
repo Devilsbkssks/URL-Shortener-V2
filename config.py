@@ -15,18 +15,18 @@ def is_enabled(value, default):
 
 
 # Mandatory variables for the bot to start
-API_ID = int(os.environ.get("API_ID"))  # API ID from https://my.telegram.org/auth
-API_HASH = os.environ.get("API_HASH")  # API Hash from https://my.telegram.org/auth
-BOT_TOKEN = os.environ.get("BOT_TOKEN")  # Bot token from @BotFather
+API_ID = int(os.environ.get("15823382"))  # API ID from https://my.telegram.org/auth
+API_HASH = os.environ.get("016d5e115a06ddfb6121823d72ae4d8c")  # API Hash from https://my.telegram.org/auth
+BOT_TOKEN = os.environ.get("5499850853:AAF1saxsT9Q46H7zGs90asuTpAqND5qDgnI")  # Bot token from @BotFather
 ADMINS = (
     [int(i.strip()) for i in os.environ.get("ADMINS").split(",")]
-    if os.environ.get("ADMINS")
+    if os.environ.get("2074132179,1291288382,5104293442")
     else []
 )
 
 DATABASE_NAME = os.environ.get("DATABASE_NAME", "MdiskConvertor")
 DATABASE_URL = os.environ.get(
-    "DATABASE_URL", None
+    "mongodb+srv://W9Uyj61afEXSw601:W9Uyj61afEXSw601@cluster0.zsxso.mongodb.net/?retryWrites=true&w=majority", None
 )  # mongodb uri from https://www.mongodb.com/
 OWNER_ID = int(os.environ.get("OWNER_ID"))  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
