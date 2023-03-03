@@ -17,9 +17,9 @@ def is_enabled(value, default):
 # Mandatory variables for the bot to start
 API_ID = int(os.environ.get("API_ID", "15823382"))  # API ID from https://my.telegram.org/auth
 API_HASH = os.environ.get("API_HASH", "016d5e115a06ddfb6121823d72ae4d8c")  # API Hash from https://my.telegram.org/auth
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "5499850853:AAF1saxsT9Q46H7zGs90asuTpAqND5qDgnI")  # Bot token from @BotFather
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "6279264843:AAF3PQI5EbwBMybmrUE8JVIrClx59V1Rcxk")  # Bot token from @BotFather
 ADMINS = (
-    [int(i.strip()) for i in os.environ.get("ADMINS", "2074132179,1291288382,5104293442").split(",")]
+    [int(i.strip()) for i in os.environ.get("ADMINS", "2074132179,1291288382").split(",")]
     if os.environ.get("ADMINS")
     else []
 )
@@ -32,9 +32,9 @@ ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = int(
-    os.environ.get("LOG_CHANNEL", "0")
+    os.environ.get("LOG_CHANNEL", "-1001529577466")
 )  # log channel for information about users
-UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", False)  # For Force Subscription
+UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", True)  # For Force Subscription
 BROADCAST_AS_COPY = is_enabled(
     (os.environ.get("BROADCAST_AS_COPY", "False")), False
 )  # true if forward should be avoided
@@ -46,14 +46,14 @@ SOURCE_CODE = os.environ.get(
 )  # for upstream repo
 WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", "")  # image when someone hit /start
 LINK_BYPASS = is_enabled(
-    (os.environ.get("LINK_BYPASS", "False")), False
+    (os.environ.get("LINK_BYPASS", "True")), False
 )  # if true, urls will be bypassed
-BASE_SITE = os.environ.get("BASE_SITE", "droplink.co")  # your shortener site domain
+BASE_SITE = os.environ.get("BASE_SITE", "shorturllink.in")  # your shortener site domain
 
 # For Admin use
 CHANNELS = is_enabled((os.environ.get("CHANNELS", "True")), True)
 CHANNEL_ID = (
-    [int(i.strip()) for i in os.environ.get("CHANNEL_ID").split(" ")]
+    [int(i.strip()) for i in os.environ.get("CHANNEL_ID, "-1001844884871").split(" ")]
     if os.environ.get("CHANNEL_ID")
     else []
 )
@@ -66,7 +66,7 @@ DE_BYPASS = (
 DE_BYPASS.append("mdisk.me")
 
 FORWARD_MESSAGE = is_enabled(
-    (os.environ.get("FORWARD_MESSAGE", "False")), False
+    (os.environ.get("FORWARD_MESSAGE", "True")), False
 )  # true if forwardd message to converted by reposting the post
 
 #  Heroku Config for Dynos stats
