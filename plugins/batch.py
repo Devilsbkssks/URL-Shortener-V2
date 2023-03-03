@@ -26,7 +26,7 @@ lock = asyncio.Lock()
 cancel_button = [[InlineKeyboardButton("Cancel 🔐", callback_data="cancel_process")]]
 
 
-@Client.on_message(filters.private & filters.command("batch") & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command("batch"))
 async def batch(c, m: Message):
 
     if m.from_user.id not in ADMINS:
@@ -64,7 +64,7 @@ async def batch(c, m: Message):
 
 
 @Client.on_callback_query(
-    filters.regex(r"^cancel") | filters.regex(r"^batch") & filters.user(ADMINS)
+    filters.regex(r"^cancel") | filters.regex(r"^batch")
 )
 async def batch_handler(c: Client, m: CallbackQuery):
     user_id = m.from_user.id
@@ -153,7 +153,7 @@ async def batch_handler(c: Client, m: CallbackQuery):
             logger.info(f"Batch Shortening Completed for {channel_id}")
 
 
-@Client.on_message(filters.private & filters.command("cancel") & filters.user(ADMINS))
+@Client.on_message(filters.private & filters.command("cancel")
 async def stop_button(c, m):
     if m.from_user.id in ADMINS:
         temp.CANCEL = True
